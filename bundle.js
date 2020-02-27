@@ -2,9 +2,9 @@
 let Phrase = require("morinoko-palindrome");
 
 document.addEventListener("DOMContentLoaded", function() {
-  let button = document.querySelector("#palindromeTester");
+  let form = document.querySelector("#palindromeTester");
 
-  button.addEventListener("click", function() {
+  form.addEventListener("submit", function() {
     palindromeTester();
   });
 });

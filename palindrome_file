@@ -1,0 +1,22 @@
+#!/usr/local/bin/node
+
+let fs = require("fs");
+let Phrase = require("morinoko-palindrome");
+
+console.log("Checking for palindromes...");
+
+let text = fs.readFileSync("phrases.txt", "utf-8");
+
+palindromes = text.split("\n").filter(function(line) {
+  let phrase = new Phrase(line);
+  
+  return phrase.palindrome();
+}).join("\n");
+
+fs.writeFile("palindromes.txt", palindromes, function(error) {
+  if (error) {
+    return console.log(error);
+  }
+
+  console.log("Saved palindromes to palindromes.txt");
+});
